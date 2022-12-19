@@ -34,6 +34,12 @@
 }
 
 body {
-  background-image: linear-gradient(180deg, #ffffff 0%, #e8e8e8 100%);
-  height: 100vh;
+  background-image: linear-gradient(180deg, #ffffff 0%, #e8e8e8 100%) no-repeat
+    center center fixed;
+  // height: 1000vh;
+  background-size: cover;
 }
+
+// .body-container {
+//   padding: 0 25px;
+// }
