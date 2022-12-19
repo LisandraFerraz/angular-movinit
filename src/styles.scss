@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300;400;600;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  // colors
+  --mardi-gras: #110b11;
+  --black-russian: #1e1e24;
+  --sorbus: #da6340;
+  --portage: #8492e4;
+  --puerto-rico: #4ebab3;
+  --valencia: #ce5353;
+  --white: #fff;
+  --black: #000;
+
+  // font size
+  --tiny: 0.75rem;
+  --small: 0.875rem;
+  --normal: 1rem;
+  --large: 1.125rem;
+  --larger: 1.25rem;
+  --huge: 1.375rem;
+
+  // font family
+  --noto-sans: "Noto Sans";
+
+  // line height
+  --default-lineh: 30px;
+  --title-lineh: 50px;
+}
+
+body {
+  background-image: linear-gradient(180deg, #ffffff 0%, #e8e8e8 100%);
+  height: 100vh;
+}

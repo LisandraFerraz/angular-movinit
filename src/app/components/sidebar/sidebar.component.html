@@ -1,0 +1,17 @@
+<div class="sidebar-container" [ngClass]="collapsed ? 'collapsed-sidebar' : ''">
+  <div class="sidebar-header">
+    <button (click)="collapseSidebar()">
+      <img src="../../../assets/icons/lightm_menu_icon.png" />
+    </button>
+  </div>
+  <div class="sidebar-body">
+    <div *ngIf="!collapsed">
+      <span>Genders</span>
+      <ul>
+        <li *ngFor="let item of arrayGenders">
+          {{ item.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
