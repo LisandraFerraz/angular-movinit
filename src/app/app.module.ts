@@ -7,6 +7,7 @@ import { HomepageComponent } from './shared/homepage/homepage.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BodyContentComponent } from './body-content/body-content.component';
+import { AuthComponent } from './admin/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BodyContentComponent } from './body-content/body-content.component';
     HomepageComponent,
     SidebarComponent,
     MenuComponent,
-    BodyContentComponent
+    BodyContentComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300;400;600;800&display=swap");
 
 * {
@@ -16,6 +17,7 @@
   --valencia: #ce5353;
   --white: #fff;
   --black: #000;
+  --linear-black: linear-gradient(180deg, #1e1e24d9 0%, #1e1e24 35.42%);
 
   // font size
   --tiny: 0.75rem;
@@ -26,11 +28,18 @@
   --huge: 1.375rem;
 
   // font family
-  --noto-sans: "Noto Sans";
+  --noto-sans: "Noto Sans", sans-serif;
+  --roboto: "Roboto", sans-serif;
 
   // line height
   --default-lineh: 30px;
   --title-lineh: 50px;
+  // screen width
+  --sm: 640px;
+  --md: 798px;
+  --lg: 1024px;
+  --xl: 1280px;
+  --xxl: 1536px;
 }
 
 body {
