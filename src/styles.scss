@@ -17,7 +17,11 @@
   --valencia: #ce5353;
   --white: #fff;
   --black: #000;
+  --grey: #d8d7da;
   --linear-black: linear-gradient(180deg, #1e1e24d9 0%, #1e1e24 35.42%);
+
+  // shadows
+  --small-sd: 0px 0px 8px #00000025;
 
   // font size
   --tiny: 0.75rem;
@@ -34,18 +38,12 @@
   // line height
   --default-lineh: 30px;
   --title-lineh: 50px;
-  // screen width
-  --sm: 640px;
-  --md: 798px;
-  --lg: 1024px;
-  --xl: 1280px;
-  --xxl: 1536px;
 }
 
 body {
-  background-image: linear-gradient(180deg, #ffffff 0%, #e8e8e8 100%) no-repeat
+  background-image: linear-gradient(180deg, #ffffff 0%, #901f1f 100%) no-repeat
     center center fixed;
-  // height: 1000vh;
+  height: 100vh;
   background-size: cover;
 }
 
