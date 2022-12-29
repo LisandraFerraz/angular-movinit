@@ -104,5 +104,28 @@
         </div>
       </div>
     </div>
+
+    <div class="card-movie" *ngFor="let tMovie of trendingMovies">
+      <div class="card-img">
+        <img src="{{ tMovie.poster_path }}" />
+      </div>
+      <div class="card-body">
+        <span>{{ tMovie.title }}</span>
+        <div class="card-details">
+          <div class="datails-1">
+            <span class="dt-title">Release: </span
+            ><span>{{ tMovie.release_date }}</span>
+          </div>
+          <div class="details-2">
+            <span class="dt-title">Duration: </span><span>1h43m</span>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag" *ngFor="let genre of trendingMoviesGenres">
+            {{ genre }}
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
