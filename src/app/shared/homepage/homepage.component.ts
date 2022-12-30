@@ -7,9 +7,14 @@ import { ListMediaService } from '../services/list-media.service';
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
-  trendingMovies: any[] = [];
-  trendingMoviesGenres: Array<any>;
+
+  lang: string
+
+  trendingMovies: any
+  trendingMoviesGenres: string;
+
   constructor(private listMediaService: ListMediaService) {}
+
   ngOnInit() {
     this.listTrendingMovies();
   }
@@ -17,7 +22,20 @@ export class HomepageComponent implements OnInit {
   listTrendingMovies() {
     this.listMediaService.listTrendingMovies().subscribe((res) => {
       this.trendingMovies = res['results'];
-      this.trendingMoviesGenres = res['results']['genre_ids'];
+      // this.trendingMoviesGenres = res['results']['original_language'];
     });
+  }
+
+  getLanguage(object){
+    if (object == "en"){
+      return 'eng'
+    }
+    else if (object == "es"){
+      return 'esp'
+    }
+    else if (object == "pt"){
+      return 'port'
+    }
+    return ''
   }
 }

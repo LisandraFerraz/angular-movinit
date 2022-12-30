@@ -201,7 +201,8 @@
 
     .card-movie {
       height: 500px;
-      padding: 0 1rem;
+      width: 295px;
+      padding: 0 1.5rem;
       background-color: var(--white);
       position: relative;
       border-radius: 10px;
@@ -227,7 +228,8 @@
       }
 
       .card-body {
-        margin-top: 350px;
+        padding-top: 350px;
+        // width: 298px;
         font-family: var(--noto-sans);
         justify-content: center;
         text-align: center;
@@ -238,8 +240,8 @@
 
         .card-details {
           display: flex;
-          justify-content: center;
-          gap: 25px;
+          justify-content: space-between;
+          // gap: 25px;
           font-size: var(--small);
           line-height: 35px;
 
@@ -255,6 +257,18 @@
           display: flex;
           justify-content: center;
           gap: 8px;
+
+          .eng, .eng::after{
+            content: 'English';
+          }
+
+          .esp, .esp::after{
+            content: 'Spanish';
+          }
+
+          .port, .port::after{
+            content: 'Portuguese';
+          }
 
           .tag {
             background-color: var(--grey);

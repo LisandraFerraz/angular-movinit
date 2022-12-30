@@ -84,7 +84,7 @@
 <div class="cards-combo">
   <span>Best Rates of 2022</span>
   <div class="cards-container">
-    <div class="card-movie">
+    <!-- <div class="card-movie">
       <div class="card-img">
         <img src="../../../assets/images/poster-1.png" />
       </div>
@@ -103,27 +103,28 @@
           ><span class="tag">Suspense</span><span class="tag">Adventure</span>
         </div>
       </div>
-    </div>
-
-    <div class="card-movie" *ngFor="let tMovie of trendingMovies">
-      <div class="card-img">
-        <img src="{{ tMovie.poster_path }}" />
-      </div>
-      <div class="card-body">
-        <span>{{ tMovie.title }}</span>
-        <div class="card-details">
-          <div class="datails-1">
-            <span class="dt-title">Release: </span
-            ><span>{{ tMovie.release_date }}</span>
-          </div>
-          <div class="details-2">
-            <span class="dt-title">Duration: </span><span>1h43m</span>
-          </div>
+    </div> -->
+    <div *ngFor="let tMovie of trendingMovies">
+      <div class="card-movie">
+        <div class="card-img">
+          <img src="" />
         </div>
-        <div class="card-tags">
-          <span class="tag" *ngFor="let genre of trendingMoviesGenres">
-            {{ genre }}
-          </span>
+        <div class="card-body">
+          <span>{{ tMovie.title }}</span>
+          <div class="card-details">
+            <div class="datails-1">
+              <span class="dt-title">Release: </span
+              ><span>{{ tMovie.release_date | date: 'dd/MM/yyyy'}}</span>
+            </div>
+            <div class="details-2">
+              <span class="dt-title">Duration: </span><span>1h43m</span>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="tag" [ngClass]="getLanguage(tMovie.original_language)">
+              {{ lang }}
+            </span>
+          </div>
         </div>
       </div>
     </div>
