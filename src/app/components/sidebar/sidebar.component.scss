@@ -1,10 +1,12 @@
 .sidebar-container {
   height: 100vh;
-  background-color: transparent;
+  background-color: var(--black-russian);
   position: fixed;
-  width: 214px;
+  width: 160px;
   font-family: var(--noto-sans);
   transition: all 0.4s;
+  padding: 25px;
+  border-top-right-radius: 95px;
 
   .sidebar-header {
     display: flex;
@@ -25,14 +27,6 @@
       }
     }
   }
-
-  .sidebar-body {
-    height: 100%;
-    background-color: var(--black-russian);
-    border-top-right-radius: 80px;
-    box-shadow: 8px 0px 10px rgba(0, 0, 0, 0.2);
-    padding: 25px;
-
     span {
       font-size: var(--normal);
       color: var(--white);
@@ -55,7 +49,6 @@
         opacity: 60%;
       }
     }
-  }
 }
 
 .collapsed-sidebar {

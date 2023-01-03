@@ -1,10 +1,13 @@
 .menu-container {
   display: flex;
-  position: absolute;
+  position: fixed;
   justify-content: space-between;
   width: 100%;
   top: 0;
   left: 0;
+  background-color: transparent;
+  z-index: 2;
+  transition: all .3s ease;
 
   ul {
     list-style: none;
@@ -56,5 +59,15 @@
   }
   .left-items {
     color: var(--black);
+  }
+}
+
+.onScrollMenu{
+  background-color: var(--black-russian) !important;
+  box-shadow: var(--small-sd);
+  transition: all .3s ease;
+
+  .left-items {
+    color: var(--white) !important;
   }
 }

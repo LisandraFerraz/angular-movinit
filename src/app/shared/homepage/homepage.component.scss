@@ -180,6 +180,10 @@
   }
 }
 
+.onScroll{
+  opacity: 1 !important;
+}
+
 .cards-combo {
   margin-top: 64px;
   width: 100%;
@@ -193,31 +197,36 @@
   }
 
   .cards-container {
+    // opacity: 0;
+    // transition: .2s ease;
     overflow-x: auto;
     display: flex;
     gap: 20px;
-    padding: 6rem 4rem;
+    padding: 6rem 0 2rem 4rem;
     margin: 0 10px;
 
     .card-movie {
-      height: 500px;
-      width: 295px;
-      padding: 0 1.5rem;
+      height: 495px;
+      width: 325px;
+      // padding: 0 1.5rem;
       background-color: var(--white);
       position: relative;
       border-radius: 10px;
       box-shadow: var(--small-sd);
       color: var(--mardi-gras);
+      justify-content: center;
 
       .card-img {
         width: 275px;
-        height: 405px;
+        height: 415px;
         padding: 0.6rem;
+        left: 0;
+        right: 0;
         margin-left: auto;
         margin-right: auto;
         border-radius: 14px;
         position: absolute;
-        top: -86px;
+        top: -90px;
         background: linear-gradient(180deg, #bebebe4d 0%, #e2e2e2 100%);
 
         img {
@@ -228,7 +237,7 @@
       }
 
       .card-body {
-        padding-top: 350px;
+        padding: 360px  1.5rem 0 1.5rem;
         // width: 298px;
         font-family: var(--noto-sans);
         justify-content: center;
@@ -240,8 +249,13 @@
 
         .card-details {
           display: flex;
-          justify-content: space-between;
-          // gap: 25px;
+          justify-content: center;
+          gap: 15px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 415px;
+          bottom: 0;
           font-size: var(--small);
           line-height: 35px;
 
@@ -281,6 +295,25 @@
             line-height: 1px;
             font-size: var(--small);
             font-weight: 300;
+          }
+        }
+      }
+
+      .card-button{
+        width: 100%;
+        margin-left: -24px;
+        background-color: var(--black-chinese);
+        padding: .5rem 0;
+        border-radius: 0 0 10px 10px;
+        position: absolute;
+        bottom: 0;
+
+        a{
+          color: var(--white);
+          text-decoration: none;
+
+          &:hover{
+            opacity: 80%;
           }
         }
       }

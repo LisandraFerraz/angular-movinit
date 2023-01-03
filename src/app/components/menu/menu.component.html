@@ -1,4 +1,4 @@
-<div class="menu-container">
+<div class="menu-container" (scroll)="changeMenuOnScroll();">
   <ul class="left-items">
     <li *ngFor="let item of menuItems">
       {{ item.name }}

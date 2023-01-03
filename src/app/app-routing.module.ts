@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './admin/auth/auth.component';
+import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { HomepageComponent } from './shared/homepage/homepage.component';
 
 const routes: Routes = [
@@ -12,6 +13,10 @@ const routes: Routes = [
     path: 'login',
     component: AuthComponent,
   },
+  {
+    path: 'movie/:id',
+    component: MovieDetailsComponent
+  }
 ];
 
 @NgModule({

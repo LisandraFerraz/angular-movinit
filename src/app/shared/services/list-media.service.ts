@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CoreApiService } from 'src/app/utils/core/core-api.service';
 import { endpoints } from 'src/app/utils/environment/endpoints';
-import {
-  environment,
-} from 'src/app/utils/environment/tmdb-environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +12,14 @@ export class ListMediaService {
     return this.coreApi.get(
       `${endpoints.listTrendingMovies}/week`
     );
+  }
+
+  listMoviesPosters(movieId: number){
+    return this.coreApi.get(`${endpoints.listMovies}/${movieId}/images`)
+  }
+
+  listMovieGenres(){
+    return this.coreApi.get(`${endpoints.listMovieGenres}`)
   }
 
 }
