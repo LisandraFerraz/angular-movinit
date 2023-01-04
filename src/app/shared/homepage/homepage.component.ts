@@ -19,7 +19,6 @@ export class HomepageComponent implements OnInit {
   movie$ = new Subject();
 
   trendingMovies: TrendingMovies[]
-  moviesPosters: any[]=[]
   genresList: Genres[]
 
   constructor(private listMediaService: ListMediaService, @Inject(PLATFORM_ID) private platformId: Object) {}
@@ -37,7 +36,6 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.listTrendingMovies();
     this.listGenres()
-    this.listMoviesPosters()
     if (isPlatformBrowser(this.platformId)) { AOS.init(); }
   }
 
@@ -47,13 +45,6 @@ export class HomepageComponent implements OnInit {
     });
   }
 
-  listMoviesPosters(){
-    this.listMediaService.listMoviesPosters(550).subscribe((res)=>{
-      this.moviesPosters = res['posters']
-
-      console.log(this.moviesPosters)
-    })
-  }
 
   listGenres(){
     this.listMediaService.listMovieGenres().subscribe((res) =>{

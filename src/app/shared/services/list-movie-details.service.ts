@@ -11,7 +11,7 @@ export class ListMovieDetailsService {
 
   constructor(private coreApi: CoreApiService) { }
 
-  listMoviesDetails(movieId: number): Observable<IMovieDetails>{
+  listMoviesDetails(movieId: number){
     return this.coreApi.get(`${endpoints.listMovies}/${movieId}`)
   }
 }

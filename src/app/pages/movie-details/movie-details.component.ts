@@ -11,38 +11,22 @@ import { IMovieDetails } from 'src/app/utils/interfaces/movies';
 })
 export class MovieDetailsComponent implements OnInit{
 
-  movie$!: Observable<IMovieDetails>
-  trendingMovies!: IMovieDetails[]
+  movieD: IMovieDetails | undefined
 
   constructor(
     private route: ActivatedRoute,
     private moviesService: ListMovieDetailsService
   ){}
 
-  ngOnInit() {
-    // setTimeout(() => {
-    //   this.route.params.subscribe(params =>{
-    //     this.subMovies(params["id"])
-    //   })
-    // }, 1000);
-
-    // this.movie$ = this.route.params.pipe(
-    //   map(params => (params["id"])),
-    //   switchMap(id => this.getMovieById(id),
-    // ))
+  ngOnInit():void {
+    setTimeout(() => {
+      this.route.params.subscribe(params =>{
+        this.listMovieById(params["id"])
+      })
+    }, 1000);
   }
 
-  // subMovies(movieId: any){
-  //   this.moviesService.listMoviesDetails(movieId).subscribe(res =>{
-  //     this.trendingMovies = this.data
-  //     console.log(this.trendingMovies)
-  //   })
-  // }
-
-  // getMovieById(id: number): Observable<IMovieDetails>{
-
-  //   const movie = this.trendingMovies.find(movie => movie.id == id);
-  //   return movie === undefined ? throwError(() => new Error(`Não foi encontrado nenhum filme. ${id}`))
-  //     : of (movie);
-  // }
+  listMovieById(movieId: number){
+    this.moviesService.listMoviesDetails(movieId).subscribe((data:IMovieDetails) => this.movieD = data)
+  }
 }

@@ -1,4 +1,5 @@
 <p>movie-details works!?</p>
-<!-- <p>balls: {{ (movie$ | async).original_title }}</p> -->
-
-<p *ngFor="let item of trendingMovies">Balls: {{ item.id }}</p>
+<div *ngIf="movieD !== undefined">
+<p>balls: {{ movieD.original_title }}</p>
+<p>balls: {{ movieD.id }}</p>
+</div>
