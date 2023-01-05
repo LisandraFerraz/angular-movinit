@@ -1,5 +1,92 @@
-<p>movie-details works!?</p>
 <div *ngIf="movieD !== undefined">
-<p>balls: {{ movieD.original_title }}</p>
-<p>balls: {{ movieD.id }}</p>
+  <div class="header-img">
+    <div *ngIf="movieImages !== undefined">
+      <ng-container *ngFor="let item of movieImages.backdrops; let i = index">
+        <div class="cover-movie" *ngIf="i === 0" >
+          <div class="transparency-header"></div>
+          <img src="https://image.tmdb.org/t/p/original/{{item.file_path}}" alt="">
+        </div>
+      </ng-container>
+    </div>
+    <div class="movie-header-container">
+      <div class="movie-poster">
+        <div class="poster-cover">
+          <img src="https://image.tmdb.org/t/p/original/{{movieD.poster_path}}" alt="Poster">
+        </div>
+      </div>
+      <div class="movie-details-txt">
+        <div class="first-half">
+          <div class="date-time-info">
+            <i class="bi bi-calendar-week"></i><span>{{movieD.release_date}}</span>
+            <i class="bi bi-hourglass-top"></i><span>{{movieD.runtime}}</span>
+          </div>
+          <div class="movie-titles">
+            <div class="title">
+              <span>{{ movieD.title }}</span>
+            </div>
+            <div class="subtitle">
+              <span class="sub-span">Original Title: </span><span>{{ movieD.original_title }}</span>
+            </div>
+          </div>
+          <div class="movie-desc">
+            <span>{{movieD.overview}}</span>
+          </div>
+          <div class="movie-tags">
+            <span *ngFor="let genre of movieD.genres">{{ genre.name }}</span>
+          </div>
+        </div>
+        <div class="second-half">
+          <div class="movie-details-sec">
+            <div class="tmdb-rate">
+              <div>
+                <span>TMDB Rate</span>
+              </div>
+              <i [ngClass]="setRate(movieD.vote_average)"></i>
+              <span class="detail-value">{{movieD.vote_average | number: '1.0-1'}}</span>
+            </div>
+            <div class="tmdb-popularity">
+              <div>
+                <span>TMDB Popularity</span>
+              </div>
+              <span class="detail-value">{{ movieD.popularity | number: '1.0-0' }}</span>
+            </div>
+          </div>
+          <div class="movie-socials-sec" *ngIf="movieSocial !== undefined">
+            <ul>
+              <li *ngIf="movieSocial.facebook_id">
+                <i class="bi bi-facebook"></i>
+                @{{movieSocial.facebook_id}}
+              </li>
+              <li *ngIf="movieSocial.twitter_id">
+                <i class="bi bi-twitter"></i>
+                @{{movieSocial.twitter_id}}
+              </li>
+              <li *ngIf="movieSocial.instagram_id">
+                <i class="bi bi-instagram"></i>
+                @{{movieSocial.instagram_id}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="movie-cast" *ngIf="movieCredit !== undefined">
+    <span>Cast</span>
+    <div class="cards-cast-container">
+      <div class="cast-card" *ngFor="let actor of movieCredit.cast" >
+        <div class="transparency"></div>
+        <div class="cast-name">
+          <div class="actor-char">
+            <span>{{ actor.character }}</span>
+          </div>
+          <div class="actor-name">
+            <span>{{ actor.original_name }}</span>
+          </div>
+        </div>
+          <img *ngIf="actor.profile_path" src="https://image.tmdb.org/t/p/original/{{actor.profile_path}}" alt="">
+          <img *ngIf="!actor.profile_path" src="../../../assets/images/null-pfp.jpg" alt="">
+      </div>
+    </div>
+  </div>
 </div>

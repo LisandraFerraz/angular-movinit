@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable, of, switchMap, throwError } from 'rxjs';
 import { ListMovieDetailsService } from 'src/app/shared/services/list-movie-details.service';
-import { IMovieDetails } from 'src/app/utils/interfaces/movies';
+import { IMovieDetails, IMovieSocials } from 'src/app/utils/interfaces/movies';
 
 @Component({
   selector: 'app-movie-details',
@@ -11,7 +11,10 @@ import { IMovieDetails } from 'src/app/utils/interfaces/movies';
 })
 export class MovieDetailsComponent implements OnInit{
 
-  movieD: IMovieDetails | undefined
+  movieD: any | undefined
+  movieSocial: any | undefined
+  movieCredit: any | undefined
+  movieImages: any | undefined
 
   constructor(
     private route: ActivatedRoute,
@@ -22,11 +25,45 @@ export class MovieDetailsComponent implements OnInit{
     setTimeout(() => {
       this.route.params.subscribe(params =>{
         this.listMovieById(params["id"])
+        this.listMovieSocials(params["id"])
+        this.listMovieCast(params["id"])
+        this.listMovieImages(params["id"])
       })
     }, 1000);
   }
 
   listMovieById(movieId: number){
-    this.moviesService.listMoviesDetails(movieId).subscribe((data:IMovieDetails) => this.movieD = data)
+    this.moviesService.listMoviesDetails(movieId).subscribe((data: any) => this.movieD = data)
+  }
+
+  listMovieSocials(movieId:number){
+    this.moviesService.listMoviesSocials(movieId).subscribe((data: any) => this.movieSocial = data)
+  }
+
+  listMovieCast(movieId: number){
+    this.moviesService.listMovieCast(movieId).subscribe((data: any) => this.movieCredit = data)
+  }
+
+  listMovieImages(movieId: number){
+    this.moviesService.listMovieImages(movieId).subscribe((data: any) => this.movieImages = data)
+  }
+
+  setRate(rate: number){
+    if(rate == 0 || rate <= 4.9){
+      return 'bi bi-emoji-frown'
+    }
+    else if (rate == 5 || rate <=6.9){
+      return 'bi bi-emoji-neutral'
+    }
+    else if(rate == 7 || rate <=8.9){
+      return 'bi bi-emoji-smile'
+    }
+    else if(rate == 9 || rate <=10){
+      return 'bi bi-emoji-laughing'
+    }
+    else{
+      console.log('Rate is not valid.')
+      return ''
+    }
   }
 }

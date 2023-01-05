@@ -1,0 +1,224 @@
+.cover-movie{
+  position: relative;
+  width: 100%;
+  height: 650px;
+
+  .transparency-header{
+    position: absolute;
+    background-color: var(--black);
+    opacity: 80%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.movie-header-container{
+  padding: 5rem 0 3.5rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  .movie-poster{
+    .poster-cover{
+      width: 335px;
+      height: 500px;
+      box-shadow: var(--small-sd);
+
+      img{
+        border-radius: 14px;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  .movie-details-txt{
+    width: 60%;
+    color: var(--white);
+    font-family: var(--noto-sans);
+
+    .date-time-info{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: var(--small);
+
+      span{
+        margin-right: 25px;
+        font-weight: 200;
+      }
+
+      i{
+        font-size: var(--large) !important;
+      }
+    }
+
+    .movie-titles{
+      padding: 1rem 0;
+
+      >div{
+        padding: .5rem 0;
+      }
+      .title span{
+        font-size: var(--big-title);
+        font-weight: 600;
+      }
+      .subtitle span{
+        font-weight: 200;
+        font-size: var(--small);
+
+          &.sub-span{
+            font-weight: 500 !important;
+          }
+      }
+    }
+
+    .movie-desc{
+      width: 750px;
+      text-align: justify;
+      font-weight: 300 !important;
+      font-family: var(--roboto);
+      line-height: 26px;
+    }
+    .movie-tags{
+      display: flex;
+      gap: 10px;
+      padding: 2rem 0;
+
+      span{
+        padding: 8px 15px;
+        background-color: var(--white);
+        opacity: 80%;
+        border-radius: 100px;
+        color: var(--black-russian);
+        font-size: var(--small);
+      }
+    }
+
+    .second-half{
+      justify-content: space-between;
+      display: flex;
+      border-top: 1px solid #ffffff20;
+      padding: 20px 0;
+
+      .movie-details-sec{
+        display: flex;
+        gap: 50px;
+        font-size: var(--normal);
+        font-weight: 600;
+      }
+
+      .movie-socials-sec{
+        ul li{
+          font-weight: 300;
+          line-height: 30px;
+          gap: 10px;
+          display: flex;
+          align-items: center;
+          list-style: none;
+          i{
+            font-size: var(--large);
+          }
+        }
+      }
+
+      .detail-value{
+        font-size: var(--big-title);
+        font-weight: 400;
+      }
+
+      .tmdb-rate{
+        > div{
+          padding: 0 0 1rem 0;
+        }
+        i{
+          padding-right: 1rem;
+          font-size: var(--big-title) !important;
+          line-height: 2px;
+        }
+      }
+      .tmdb-popularity > div{
+        padding: 0 0 1rem 0;
+      }
+    }
+  }
+}
+
+.movie-cast{
+  > span {
+    font-size: var(--larger);
+    font-family: var(--noto-sans);
+    font-weight: 600;
+    line-height: 105px;
+    padding: 0 2rem;
+  }
+
+  .cards-cast-container{
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1rem 0 2rem 2rem;
+    margin: 0 40px;
+
+
+    .cast-card{
+      width: 170px;
+      height: 255px;
+      position: relative;
+
+    .cast-name{
+      position: absolute;
+      top: 160px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0 .5rem;
+      text-align: center;
+      color: var(--white);
+      font-family: var(--noto-sans);
+      line-height: 25px;
+
+      .actor-char{
+        font-weight: 600;
+      }
+      .actor-name{
+        font-weight: 300;
+      }
+    }
+
+    .transparency{
+      position: absolute;
+      background-image:  linear-gradient(to bottom, #00000000, #00000098, #000000d9);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    img{
+      object-fit: cover;
+      height: 100%;
+      width: 170px;
+      border-radius: 8px;
+    }
+    }
+  }
+}
