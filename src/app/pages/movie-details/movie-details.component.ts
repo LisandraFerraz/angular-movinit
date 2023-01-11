@@ -15,6 +15,8 @@ export class MovieDetailsComponent implements OnInit{
   movieSocial: any | undefined
   movieCredit: any | undefined
   movieImages: any | undefined
+  watchProviders: any | undefined
+  reviews: any | undefined
 
   constructor(
     private route: ActivatedRoute,
@@ -25,28 +27,25 @@ export class MovieDetailsComponent implements OnInit{
     setTimeout(() => {
       this.route.params.subscribe(params =>{
         this.listMovieById(params["id"])
-        this.listMovieSocials(params["id"])
-        this.listMovieCast(params["id"])
-        this.listMovieImages(params["id"])
+        // this.listProviders(params['id'])
       })
     }, 1000);
   }
 
   listMovieById(movieId: number){
     this.moviesService.listMoviesDetails(movieId).subscribe((data: any) => this.movieD = data)
-  }
-
-  listMovieSocials(movieId:number){
-    this.moviesService.listMoviesSocials(movieId).subscribe((data: any) => this.movieSocial = data)
-  }
-
-  listMovieCast(movieId: number){
-    this.moviesService.listMovieCast(movieId).subscribe((data: any) => this.movieCredit = data)
-  }
-
-  listMovieImages(movieId: number){
     this.moviesService.listMovieImages(movieId).subscribe((data: any) => this.movieImages = data)
+    this.moviesService.listMoviesSocials(movieId).subscribe((data: any) => this.movieSocial = data)
+    this.moviesService.listMovieCast(movieId).subscribe((data: any) => this.movieCredit = data)
+    this.moviesService.listProviders(movieId).subscribe((data: any) => this.watchProviders = data)
+    this.moviesService.listReviews(movieId).subscribe((data: any) => this.reviews = data)
   }
+
+  // listProviders(movieId: number){
+  //   this.moviesService.listProviders(movieId).subscribe( (res) =>{
+  //     this.watchProviders = res['results']
+  //   })
+  // }
 
   setRate(rate: number){
     if(rate == 0 || rate <= 4.9){

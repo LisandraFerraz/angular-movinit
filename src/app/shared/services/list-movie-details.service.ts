@@ -26,4 +26,12 @@ export class ListMovieDetailsService {
   listMovieImages(movieId: number){
     return this.coreApi.get(`${endpoints.listMovies}/${movieId}/images`)
   }
+
+  listProviders(movieId: number){
+    return this.coreApi.get(`${endpoints.listMovies}/${movieId}/watch/providers`)
+  }
+
+  listReviews(movieId: number){
+    return this.coreApi.get(`${endpoints.listMovies}/${movieId}/reviews`)
+  }
 }

@@ -49,6 +49,19 @@ body {
   background-size: cover;
 }
 
+.small-title{
+    font-size: var(--normal);
+    font-family: var(--noto-sans);
+    font-weight: 600;
+    line-height: 65px;
+}
+
+.big-title{
+  font-size: var(--larger);
+  font-family: var(--noto-sans);
+  font-weight: 600;
+  line-height: 105px;
+}
 // .body-container {
 //   padding: 0 25px;
 // }

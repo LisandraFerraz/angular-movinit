@@ -1,4 +1,4 @@
-<div *ngIf="movieD !== undefined">
+<div *ngIf="movieD !== undefined && movieCredit !== undefined">
   <div class="header-img">
     <div *ngIf="movieImages !== undefined">
       <ng-container *ngFor="let item of movieImages.backdrops; let i = index">
@@ -71,7 +71,7 @@
       </div>
     </div>
   </div>
-  <div class="movie-cast" *ngIf="movieCredit !== undefined">
+  <div class="movie-cast">
     <span>Cast</span>
     <div class="cards-cast-container">
       <div class="cast-card" *ngFor="let actor of movieCredit.cast" >
@@ -87,6 +87,67 @@
           <img *ngIf="actor.profile_path" src="https://image.tmdb.org/t/p/original/{{actor.profile_path}}" alt="">
           <img *ngIf="!actor.profile_path" src="../../../assets/images/null-pfp.jpg" alt="">
       </div>
+    </div>
+  </div>
+  <div class="details-wrapped">
+    <div class="details-stream">
+      <div class="details details-box">
+          <div class="details-1">
+            <span class="small-title">Directed By</span>
+            <ul  *ngFor="let director of movieCredit.crew" >
+              <li *ngIf="director.department === 'Directing'">
+                {{ director.name }}
+              </li>
+            </ul>
+            <span class="small-title">Country</span>
+            <ul>
+              <li *ngFor="let country of movieD.production_countries"> {{ country.name }} </li>
+            </ul>
+          </div>
+          <div class="details-1">
+            <span class="small-title">Budget</span>
+            <ul>
+              <li>{{ movieD.budget | currency }}</li>
+            </ul>
+            <span class="small-title">Revenue</span>
+            <ul>
+              <li>{{ movieD.revenue | currency}}</li>
+            </ul>
+          </div>
+      </div>
+      <div class="stream-plataforms details-box" *ngIf="watchProviders !== undefined">
+        <span class="small-title">Available now on</span>
+        <div class="service-box" >
+          <img src="" alt=""> <span>{{ watchProviders.id }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="review" *ngIf="reviews !== undefined">
+      <div class="review-card" *ngFor="let review of reviews.results">
+        <div class="card-header">
+          <div class="header-user-details">
+            <div *ngFor="let item of review.author_details">
+              <img src="{{item.avatar_path}}" alt="">
+            </div>
+            <div class="header-published-details">
+              <div class="user-name">
+                <span>{{ review.author }}</span>
+              </div>
+              <div class="user-publish-date">
+                <span class="publish-title">Published at: </span> <span>{{ review.created_at | date: 'dd/MM/yyyy' }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="header-stars"></div>
+        </div>
+        <div class="card-body">
+          <span>{{ review.content }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-photos">
+      a
+
     </div>
   </div>
 </div>
