@@ -94,8 +94,8 @@
       <div class="details details-box">
           <div class="details-1">
             <span class="small-title">Directed By</span>
-            <ul  *ngFor="let director of movieCredit.crew" >
-              <li *ngIf="director.department === 'Directing'">
+            <ul  *ngFor="let director of movieCredit.crew; let i=index">
+              <li *ngIf="director.department === 'Directing' && i<150">
                 {{ director.name }}
               </li>
             </ul>
@@ -115,39 +115,84 @@
             </ul>
           </div>
       </div>
-      <div class="stream-plataforms details-box" *ngIf="watchProviders !== undefined">
+      <div class="stream-plataforms details-box custom-scroll">
         <span class="small-title">Available now on</span>
-        <div class="service-box" >
-          <img src="" alt=""> <span>{{ watchProviders.id }}</span>
+        <div *ngIf="watchProviders !== undefined">
+          <div class="service-box" *ngFor="let provider of watchProviders.rent">
+            <img src="https://image.tmdb.org/t/p/original/{{provider.logo_path}}" alt="">
+            <span >{{ provider.provider_name }}</span>
+          </div>
+          <div class="service-box" *ngFor="let provider of watchProviders.flatrate">
+            <img src="https://image.tmdb.org/t/p/original/{{provider.logo_path}}" alt="">
+            <span >{{ provider.provider_name }}</span>
+          </div>
+        </div>
+        <div *ngIf="!watchProviders || watchProviders.rent == undefined && watchProviders.flatrate == undefined">
+          <div class="no-providers">
+            <img src="../../../assets/images/light-no-provider.png" alt="">
+          </div>
         </div>
       </div>
     </div>
-    <div class="review" *ngIf="reviews !== undefined">
-      <div class="review-card" *ngFor="let review of reviews.results">
-        <div class="card-header">
-          <div class="header-user-details">
-            <div *ngFor="let item of review.author_details">
-              <img src="{{item.avatar_path}}" alt="">
+    <div class="review custom-scroll" >
+      <span class="small-title">Reviews</span>
+      <div *ngIf="reviews !== undefined">
+        <div class="review-card" *ngFor="let review of reviews">
+          <div class="card-header">
+            <div class="header-user-details">
+              <div class="user-pfp">
+                <img *ngIf="review.author_details.avatar_path" src="https://image.tmdb.org/t/p/original/{{review.author_details.avatar_path}}" alt="">
+                <img *ngIf="!review.author_details.avatar_path" src="../../../assets/images/null-pfp.jpg" alt="">
+              </div>
+              <div class="header-published-details">
+                <div class="user-name">
+                  <span>{{ review.author }}</span>
+                </div>
+                <div class="user-publish-date">
+                  <span class="publish-title">Published at: </span> <span>{{ review.created_at | date: 'dd/MM/yyyy' }}</span>
+                </div>
+              </div>
             </div>
-            <div class="header-published-details">
-              <div class="user-name">
-                <span>{{ review.author }}</span>
-              </div>
-              <div class="user-publish-date">
-                <span class="publish-title">Published at: </span> <span>{{ review.created_at | date: 'dd/MM/yyyy' }}</span>
-              </div>
+            <div class="header-stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
             </div>
           </div>
-          <div class="header-stars"></div>
+          <div class="card-body custom-scroll">
+            <span>{{ review.content }}</span>
+          </div>
         </div>
-        <div class="card-body">
-          <span>{{ review.content }}</span>
+      </div>
+      <div *ngIf="reviews == undefined || !reviews || reviews == null || reviews == 0">
+        <div class="no-reviews-container">
+          <img src="../../../assets/images/light-no-reviews.png" alt="">
         </div>
       </div>
     </div>
     <div class="gallery-photos">
-      a
-
+      <ng-container class="photo-gallery" *ngFor="let moviePic of movieImages.backdrops; let i=index">
+        <div class="pic-block" *ngIf="i<5">
+          <img src="https://image.tmdb.org/t/p/original/{{moviePic.file_path}}" alt="">
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="recommended-wrapped">
+    <span class="big-title">Recommended for you</span>
+    <div *ngIf="recommended !== undefined" class="recommended-container">
+      <div class="recommended-card" *ngFor="let media of recommended">
+        <div class="card-cover">
+          <img *ngIf="media.poster_path" src="https://image.tmdb.org/t/p/original/{{media.poster_path}}" alt="">
+          <img *ngIf="!media.poster_path" src="../../../assets/images/no-movie-img.png" alt="">
+        </div>
+        <div class="card-body">
+          <span>{{ media.title }}</span>
+        </div>
+        <a [routerLink]="['/movie', media.id]"><span class="anchor-link"></span></a>
+      </div>
     </div>
   </div>
 </div>

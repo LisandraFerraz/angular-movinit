@@ -16,7 +16,10 @@ export class MovieDetailsComponent implements OnInit{
   movieCredit: any | undefined
   movieImages: any | undefined
   watchProviders: any | undefined
+  providers: any | undefined
   reviews: any | undefined
+  authorReview: any | undefined
+  recommended: any | undefined
 
   constructor(
     private route: ActivatedRoute,
@@ -27,26 +30,32 @@ export class MovieDetailsComponent implements OnInit{
     setTimeout(() => {
       this.route.params.subscribe(params =>{
         this.listMovieById(params["id"])
-        // this.listProviders(params['id'])
       })
     }, 1000);
   }
 
   listMovieById(movieId: number){
-    this.moviesService.listMoviesDetails(movieId).subscribe((data: any) => this.movieD = data)
-    this.moviesService.listMovieImages(movieId).subscribe((data: any) => this.movieImages = data)
-    this.moviesService.listMoviesSocials(movieId).subscribe((data: any) => this.movieSocial = data)
-    this.moviesService.listMovieCast(movieId).subscribe((data: any) => this.movieCredit = data)
-    this.moviesService.listProviders(movieId).subscribe((data: any) => this.watchProviders = data)
-    this.moviesService.listReviews(movieId).subscribe((data: any) => this.reviews = data)
+    this.moviesService.listMoviesDetails(movieId).subscribe((res) => this.movieD = res)
+    this.moviesService.listMovieImages(movieId).subscribe((res) => this.movieImages = res)
+    this.moviesService.listMoviesSocials(movieId).subscribe((res) => this.movieSocial = res)
+    this.moviesService.listMovieCast(movieId).subscribe((res) => this.movieCredit = res)
+
+    this.moviesService.listRecommendations(movieId).subscribe((res) =>
+      this.recommended = res['results']
+    )
+
+    this.moviesService.listProviders(movieId).subscribe( (res) =>{
+      this.watchProviders = res['results']['US']
+    })
+    this.moviesService.listReviews(movieId).subscribe((res: any) =>{
+      this.reviews = res['results']
+      this.authorReview  = res['results']['author_details']
+    })
   }
 
-  // listProviders(movieId: number){
-  //   this.moviesService.listProviders(movieId).subscribe( (res) =>{
-  //     this.watchProviders = res['results']
-  //   })
-  // }
-
+  trackByFn(index, item){
+    return item.uniqueValue;
+  }
   setRate(rate: number){
     if(rate == 0 || rate <= 4.9){
       return 'bi bi-emoji-frown'
