@@ -9,7 +9,7 @@ import { HomepageComponent } from './shared/homepage/homepage.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BodyContentComponent } from './body-content/body-content.component';
-import { AuthComponent } from './admin/auth/auth.component';
+import { AuthComponent } from './auth/auth.component';
 import { TMDBInterceptor } from './utils/interceptors/tmdb.interceptor';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 
