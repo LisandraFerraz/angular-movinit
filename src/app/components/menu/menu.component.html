@@ -1,5 +1,5 @@
-<div class="menu-container" (scroll)="changeMenuOnScroll();">
-  <ul class="left-items">
+<div class="menu-container" [ngClass]="adjustItems()" (scroll)="changeMenuOnScroll();">
+  <ul class="left-items" [ngClass]="hidetItems()">
     <li *ngFor="let item of menuItems">
       {{ item.name }}
     </li>
@@ -8,7 +8,7 @@
     <li>
       <button class="light-mode-btn"><i class="bi bi-moon"></i></button> Night
     </li>
-    <li>
+    <li [ngClass]="hidetItems()">
       <a routerLink="login">
         <button class="registration-btn">Log in</button>
       </a>

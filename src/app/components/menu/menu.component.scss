@@ -1,3 +1,7 @@
+.adjust-items{
+  justify-content: end !important;
+}
+
 .menu-container {
   display: flex;
   position: fixed;
@@ -8,6 +12,10 @@
   background-color: transparent;
   z-index: 2;
   transition: all .3s ease;
+
+  .hide-items{
+    display: none;
+  }
 
   ul {
     list-style: none;

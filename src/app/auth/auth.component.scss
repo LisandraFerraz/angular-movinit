@@ -1,17 +1,19 @@
 .login-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  // justify-items: center !important;
   // grid-template-columns: repeat(2, auto);
 
   .login-template{
     height: 100vh;
-    width: 600px;
+    width: 100vw;
     position: relative;
+    overflow: hidden;
 
     .video-transparency{
       position: absolute;
       background-color: var(--black);
-      opacity: 60%;
+      opacity: 90%;
       top: 0;
       bottom: 0;
       left: 0;
@@ -30,34 +32,116 @@
   .login-container-template{
     display: flex;
     justify-content: center;
-    align-items: center;
+    justify-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
 
-    .login-container{
-      display: block;
-      width: 570px;
-      height: 550px;
-      background-color: #ffffff59;
-      box-shadow: var(--small-sd);
-      border-radius: 14px;
-      padding: 4rem;
 
-      .login-header{
-        margin: 0 0 2rem 0;
+    .combo-container{
+      display: flex;
+      align-items: center;
 
-        .login-header-title{
-          margin: 0 0 1rem 0;
+      .login-container-combo{
+        display: block;
+        background-color: #f6f6f61f;
+        box-shadow: var(--small-sd);
+        border-radius: 14px;
+        padding: 4rem;
+        width: fit-content;
+        height: auto;
 
+        .login-header{
+          margin: 0 0 2rem 0;
+
+          .login-header-title{
+            margin: 0 0 1rem 0;
+
+            >span{
+              font-family: var(--noto-sans);
+              color: var(--white);
+              font-weight: 600;
+              font-size: var(--huge);
+            }
+          }
           >span{
             font-family: var(--noto-sans);
-            color: var(--black-russian);
-            font-weight: 600;
-            font-size: var(--huge);
+            font-size: var(--normal);
+            font-weight: 300;
+            color: var(--white);
           }
         }
-        >span{
-          font-family: var(--noto-sans);
-          font-size: var(--normal);
-          font-weight: 300;
+
+        .login-body{
+          form {
+            .login-form-row{
+              margin: 25px 0;
+
+              label{
+                margin: 5px 0;
+                font-size: var(--normal);
+                font-family: var(--noto-sans);
+                color: var(--white);
+                font-weight: 300;
+                display: block;
+              }
+
+              .login-input{
+                border-radius: 6px;
+                height: 50px;
+                width: 482px;
+                padding: 0 8px;
+                border: 1px solid #B4B4B4;
+                outline: none;
+                background-color: #D4D4D4;
+                font-size: var(--normal);
+              }
+
+              .submit-group{
+                text-align: center;
+                text-decoration: none;
+
+                >a {
+                  text-decoration: none;
+                }
+
+                 button{
+                  margin: 25px 0;
+                  background-color: var(--dark-portage);
+                  height: 50px;
+                  width: 500px;
+                  text-align: center;
+                  text-transform: uppercase;
+                  color: var(--white);
+                  font-family: var(--noto-sans);
+                  display: block;
+                  border-radius: 6px;
+                  outline: none;
+                  border: none;
+                  font-size: var(--normal);
+                  transition: all ease .5s;
+
+                  &:hover{
+                    cursor: pointer;
+                    opacity: 80%;
+                  }
+                }
+
+                .login-link{
+                  text-align: center !important;
+                  color: var(--white);
+                  font-family: var(--noto-sans);
+                  opacity: 50%;
+                  transition: all ease .3s;
+                  text-decoration: underline;
+
+                  &:hover{
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

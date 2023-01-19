@@ -4,30 +4,34 @@
     <video autoplay loop muted disablePictureInPicture src="../../assets/videos/login-video.mp4"></video>
   </div>
   <div class="login-container-template">
-    <div class="login-container">
-      <div class="login-header">
-        <div class="login-header-title">
-          <span>Welcome back.</span>
+    <div class="combo-container">
+      <div class="login-container-combo">
+        <div class="login-header">
+          <div class="login-header-title">
+            <span>Welcome back.</span>
+          </div>
+          <span>Make your login to keep following the newest works from the cinema</span>
         </div>
-        <span>Make your login to keep following the newest works from the cinema</span>
-      </div>
-      <div class="login-body">
-        <form>
-          <div class="login-form-row">
-            <label for="">Email</label>
-            <input id="email" type="email">
-          </div>
-          <div class="login-form-row">
-            <label for="password">Password</label>
-            <input id="password" type="text">
-          </div>
-          <div class="login-form-row">
-            <a href="">
-              <button>Login</button>
-            </a>
-            <a routerLink="register">Does not have an account yet? Create one now.</a>
-          </div>
-        </form>
+        <div class="login-body">
+          <form>
+            <div class="login-form-row">
+              <label for="">Email</label>
+              <input class="login-input" id="email" type="email">
+            </div>
+            <div class="login-form-row">
+              <label for="password">Password</label>
+              <input class="login-input" id="password" type="text">
+            </div>
+            <div class="login-form-row">
+              <div class="submit-group">
+                <a href="">
+                  <button>Login</button>
+                </a>
+                <a class="login-link" routerLink="register">Does not have an account yet? Create one now.</a>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
