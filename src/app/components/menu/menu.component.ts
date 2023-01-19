@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { HostListener, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, TitleStrategy } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth-service.service';
 import { NavItems, topMenuItems } from 'src/app/utils/sidebar-items';
 
 @Component({
@@ -10,10 +12,19 @@ import { NavItems, topMenuItems } from 'src/app/utils/sidebar-items';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private route: Router){}
+  message = ''
+
+  constructor(private route: Router, private authService: AuthService){}
 
   ngOnInit() {
     this.menuItems = topMenuItems;
+
+    this.authService.getUser({withCredentials: true}).subscribe((res: any) =>{
+      this.message = res.name
+      console.log(res.name)
+    }, err =>{
+      console.log("Error caught?", err)
+    })
   }
 
   hidetItems(){

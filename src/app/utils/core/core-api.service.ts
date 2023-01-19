@@ -8,7 +8,11 @@ import { Observable } from 'rxjs';
 export class CoreApiService {
   constructor(private http: HttpClient) {}
 
-  public get(url: string): Observable<any> {
+  public get(url: string, opts?: any): Observable<any> {
     return this.http.get<any>(url);
+  }
+
+  public post(url: string, body?: any, opts?: any):Observable<any>{
+    return this.http.post<any>(url, body, opts)
   }
 }

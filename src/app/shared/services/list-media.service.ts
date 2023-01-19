@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CoreApiService } from 'src/app/utils/core/core-api.service';
-import { endpoints } from 'src/app/utils/environment/endpoints';
+import { endpointsTMDB } from 'src/app/utils/environment/endpoints';
 
 @Injectable({
   providedIn: 'root',
@@ -10,16 +10,16 @@ export class ListMediaService {
 
   listTrendingMovies() {
     return this.coreApi.get(
-      `${endpoints.listTrendingMovies}/week`
+      `${endpointsTMDB.listTrendingMovies}/week`
     );
   }
 
   listMoviesPosters(movieId: number){
-    return this.coreApi.get(`${endpoints.listMovies}/${movieId}/images`)
+    return this.coreApi.get(`${endpointsTMDB.listMovies}/${movieId}/images`)
   }
 
   listMovieGenres(){
-    return this.coreApi.get(`${endpoints.listMovieGenres}`)
+    return this.coreApi.get(`${endpointsTMDB.listMovieGenres}`)
   }
 
 }

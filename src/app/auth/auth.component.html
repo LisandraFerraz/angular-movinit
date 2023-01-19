@@ -13,19 +13,19 @@
           <span>Make your login to keep following the newest works from the cinema</span>
         </div>
         <div class="login-body">
-          <form>
+          <form [formGroup]="form">
             <div class="login-form-row">
               <label for="">Email</label>
-              <input class="login-input" id="email" type="email">
+              <input formControlName="email" class="login-input" required id="email" type="email">
             </div>
             <div class="login-form-row">
               <label for="password">Password</label>
-              <input class="login-input" id="password" type="text">
+              <input formControlName="password" class="login-input" required id="password" type="text">
             </div>
             <div class="login-form-row">
               <div class="submit-group">
                 <a href="">
-                  <button>Login</button>
+                  <button (click)="login()">Login</button>
                 </a>
                 <a class="login-link" routerLink="register">Does not have an account yet? Create one now.</a>
               </div>

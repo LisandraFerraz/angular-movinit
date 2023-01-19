@@ -2,13 +2,15 @@
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../environment/tmdb-environment';
+import { environmentTMDB } from '../environment/tmdb-environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TMDBInterceptor implements HttpInterceptor {
 
   private setUrl(url: string ){
-    return environment.apiConnectUrl + url + `?api_key=${environment.apiKey}`;
+    return environmentTMDB.apiConnectUrl + url + `?api_key=${environmentTMDB.apiKey}`;
   }
 
   intercept(
@@ -17,7 +19,7 @@ export class TMDBInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
 
       const getTMDBApi = req.clone({
-        url: this.setUrl(req.url.replace(environment.apiConnectUrl, '')),
+        url: this.setUrl(req.url.replace(environmentTMDB.apiConnectUrl, '')),
       });
       return next.handle(getTMDBApi);
 

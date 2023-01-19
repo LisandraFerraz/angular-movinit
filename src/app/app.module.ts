@@ -11,7 +11,10 @@ import { MenuComponent } from './components/menu/menu.component';
 import { BodyContentComponent } from './body-content/body-content.component';
 import { AuthComponent } from './auth/auth.component';
 import { TMDBInterceptor } from './utils/interceptors/tmdb.interceptor';
+import { MovinitInterceptor } from './utils/interceptors/movinit-api.interceptor';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { interceptorsProviders } from './utils/interceptors/interceptors';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,16 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
     AuthComponent,
     MovieDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserModule, HttpClientModule, BrowserAnimationsModule],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TMDBInterceptor,
-    multi: true
-  }],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [interceptorsProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
